@@ -51,6 +51,7 @@ resource "aws_route53_record" "frontend" {
   records = [aws_instance.instance[each.value["name"]].private_ip]
 }
 #
+
 #
 #resource "aws_instance" "mongodb" {
 #  ami           = data.aws_ami.centos.image_id
