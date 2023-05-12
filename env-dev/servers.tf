@@ -50,6 +50,8 @@ resource "aws_route53_record" "frontend" {
   ttl     = 30
   records = [aws_instance.instance[each.value["name"]].private_ip]
 }
+
+env=dev
 #
 
 #
