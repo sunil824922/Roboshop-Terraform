@@ -42,7 +42,7 @@ resource "aws_instance" "instance" {
 }
 
 
-resource "aws_route53_record" "frontend" {
+resource "aws_route53_record" "each.value["name"]" {
   for_each = var.components
   zone_id = "Z07723241NASCD733XBTT"
   name    = "${each.value["name"]}.devops2023sk.online"
@@ -50,6 +50,7 @@ resource "aws_route53_record" "frontend" {
   ttl     = 30
   records = [aws_instance.instance[each.value["name"]].private_ip]
 }
+env = "dev"
 
 #
 
