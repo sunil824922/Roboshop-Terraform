@@ -27,6 +27,10 @@ variable "components" {
       name = "catalogue"
       instance_type = "t3.small"
     }
+    paymnet = {
+      name          = "payment"
+      instance_type = "t3.small"
+    }
   }
 }
 
