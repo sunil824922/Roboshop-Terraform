@@ -31,7 +31,7 @@ variable "components" {
   }
 }
 
-env = "dev"
+
 
 
 resource "aws_instance" "instance" {
