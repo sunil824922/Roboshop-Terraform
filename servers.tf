@@ -27,7 +27,7 @@ variable "components" {
       name = "catalogue"
       instance_type = "t3.small"
     }
-    paymnet = {
+    payment = {
       name          = "payment"
       instance_type = "t3.small"
     }
