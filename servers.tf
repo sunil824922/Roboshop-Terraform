@@ -1,39 +1,8 @@
-data "aws_ami" "centos" {
-  owners      = ["973714476881"]
-  most_recent = true
-  name_regex  = "Centos-8-DevOps-Practice"
-}
 
-data "aws_security_group" "allow_all" {
-  name = "allow_all"
-}
 
 variable "instance_type" {
   default = "t3.micro"
 }
-
-variable "components" {
-  default = {
-    frontend = {
-      name = "frontend"
-      instance_type = "t3.small"
-    }
-    mongodb = {
-      name = "mongodb"
-      instance_type = "t3.micro"
-    }
-    catalogue = {
-      name = "catalogue"
-      instance_type = "t3.small"
-    }
-    payment = {
-      name          = "payment"
-      instance_type = "t3.small"
-    }
-  }
-}
-
-
 
 resource "aws_instance" "instance" {
   for_each         = var.components
