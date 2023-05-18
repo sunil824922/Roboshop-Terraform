@@ -30,9 +30,9 @@ provisioner "remote-exec" {
       }
 
       inline = [
-        "rm -rf Roboshop-shell",
+        "rm -rf roboshop-shell",
         "git clone https://github.com/sunil824922/roboshop-shell",
-        "sudo bash ${each.value["name"]}.sh"
+        "sudo bash ${each.value["name"]}.sh ${each.value["password"]}"
       ]
     }
   }
