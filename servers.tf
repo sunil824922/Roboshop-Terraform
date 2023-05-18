@@ -13,7 +13,6 @@ resource "aws_instance" "instance" {
   tags = {
     Name = each.value["name"]
   }
-
 }
 
 
