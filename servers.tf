@@ -31,7 +31,7 @@ resource "null_resource" "provisioner"  {
 
       inline = [
         "rm -rf Roboshop-shell",
-        "git clone https://github.com/sunil824922/roboshop-shell",
+        "git clone https://github.com/sunil824922/Project-1.git",
         "sudo bash ${each.value["name"]}.sh"
       ]
     }
