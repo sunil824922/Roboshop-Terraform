@@ -30,16 +30,12 @@ provisioner "remote-exec" {
       }
 
       inline = [
-        "rm -rf roboshop-shell",
-        "git clone https://github.com/sunil824922/roboshop-shell",
+        "rm -rf Project-1",
+        "git clone https://github.com/sunil824922/Project-1",
         "sudo bash ${each.value["name"]}.sh ${lookup(each.value, "password", "null") }"
       ]
     }
   }
-
-
-
-
 
 
 resource "aws_route53_record" "records" {
