@@ -1,5 +1,5 @@
 
-components = {
+component = {
 
   frontend = {
     name = "frontend"
@@ -45,6 +45,6 @@ components = {
     instance_type = "t3.small"
     password = "roboshop123"
   }
-}
 
-env = "dev"
+}
+    env = "dev"
