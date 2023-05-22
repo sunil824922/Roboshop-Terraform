@@ -1,7 +1,4 @@
-
-
 component = {
-
   frontend = {
     name = "frontend"
     instance_type = "t3.small"
@@ -46,6 +43,5 @@ component = {
     instance_type = "t3.small"
     password = "roboshop123"
   }
-
+  env = "dev"
 }
-    env = "dev"
