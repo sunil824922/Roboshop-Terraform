@@ -7,3 +7,5 @@ data "aws_ami" "centos" {
 data "aws_security_group" "allow_all" {
   name = "allow_all"
 }
+
+
