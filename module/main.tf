@@ -27,7 +27,6 @@ resource "null_resource" "provisioner"  {
   }
 }
 
-
 resource "aws_route53_record" "records" {
 
   zone_id = "Z02273062C88PHAGX2U2W"
@@ -35,4 +34,27 @@ resource "aws_route53_record" "records" {
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.private_ip]
+}
+
+
+resource "aws_iam_role" "role" {
+  name = "${var.component_name}-${var.env}-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  })
+
+  tags = {
+    tag-key = "${var.component_name}-${var.env}-role"
+  }
 }
