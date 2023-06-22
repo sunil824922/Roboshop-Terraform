@@ -33,7 +33,7 @@ resource "null_resource" "provisioner"  {
 
 resource "aws_route53_record" "records" {
 
-  zone_id = "Z02273062C88PHAGX2U2W"
+  zone_id = "Z01365449HN8HOVYE5QR"
   name    = "${var.component_name}-dev.devops2023sk.online"
   type    = "A"
   ttl     = 30
@@ -87,8 +87,8 @@ resource "aws_iam_role_policy" "ssm-ps-policy" {
           "ssm:GetParameter"
         ],
         "Resource" : [
-          "arn:aws:kms:us-east-1:116420554906:key/d8114269-4589-4ff0-b070-3df5d1a3c910",
-          "arn:aws:ssm:us-east-1:116420554906:parameter/${var.env}.${var.component_name}.*"
+          "arn:aws:kms:us-east-1:149202740311:key/d8114269-4589-4ff0-b070-3df5d1a3c910",
+          "arn:aws:ssm:us-east-1:149202740311:parameter/${var.env}.${var.component_name}.*"
         ]
       }
     ]
