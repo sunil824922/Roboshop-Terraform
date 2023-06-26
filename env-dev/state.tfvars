@@ -1,3 +1,3 @@
-bucket = "terraform-s3-sk"
+bucket = "terrafrom-s3-sunil"
 key    = "roboshop/dev/terraform.tfstate"
 region = "us-east-1"
