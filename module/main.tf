@@ -87,7 +87,7 @@ resource "aws_iam_role_policy" "ssm-ps-policy" {
           "ssm:GetParameter"
         ],
         "Resource" : [
-          "arn:aws:kms:us-east-1:149202740311:key/d8114269-4589-4ff0-b070-3df5d1a3c910",
+          "arn:aws:kms:us-east-1:149202740311:key/c98b73e8-d4fe-4ac3-a240-529782bcab23",
           "arn:aws:ssm:us-east-1:149202740311:parameter/${var.env}.${var.component_name}.*"
         ]
       }
