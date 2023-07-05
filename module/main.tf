@@ -8,7 +8,7 @@ resource "aws_instance" "instance" {
   iam_instance_profile   = aws_iam_instance_profile.instance_profile.name
 
   tags = {
-    Name = local.name
+    Name = var.app_type == "app" ? local.app_tags : local.db_tags
   }
 }
 
