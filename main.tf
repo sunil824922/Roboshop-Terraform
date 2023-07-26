@@ -35,15 +35,7 @@ module "vpc" {
 
 
 
-#variable "allow_db_cidr" {}
-#variable "name" {
-#  default = "docdb"
-#}
-#variable "engine_version" {}
-#variable "kms_arn" {}
-#variable "port_no" {
-#  default = 27017
-#}
+
 
 module "docdb" {
   source = "git::https://github.com/sunil824922/tf-module-docdb.git"
@@ -52,13 +44,9 @@ module "docdb" {
   subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
   allow_db_cidr = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_db_cidr"], null), "subnet_cidrs", null)
   engine_version = each.value["engine_version"]
-
-
   tags       = local.tags
   env        = var.env
   vpc_id     = local.vpc_id
   kms_arn    = var.kms_arn
-
-
 }
 
