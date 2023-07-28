@@ -12,3 +12,4 @@ variable "docdb" {}
 variable "rds" {}
 
 variable "kms_arn" {}
+variable "elasticache" {}
