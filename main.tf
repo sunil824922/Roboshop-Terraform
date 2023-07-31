@@ -124,7 +124,6 @@ module "alb" {
   env        = var.env
   vpc_id     = local.vpc_id
 
-
 }
 
 
