@@ -103,7 +103,7 @@ module "rabbitmq" {
   env        = var.env
   vpc_id     = local.vpc_id
   kms_arn    = var.kms_arn
-  bastion_cide = var.bastion_cidr
+  bastion_cidr = var.bastion_cidr
 
 }
 
