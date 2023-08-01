@@ -63,6 +63,7 @@ docdb = {
     instance_count = 1
     instance_class = "db.t3.medium"
   }
+}
 
 rds = {
   main = {
@@ -93,17 +94,17 @@ rabbitmq = {
   }
 }
 
-  alb = {
-    public = {
-      name           = "public"
-      subnet_name    = "public"
-      allow_alb_cidr = null
-      internal       = false
-    }
-    private = {
-      name           = "private"
-      subnet_name    = "app"
-      allow_alb_cidr = "web"
-      internal       = true
-    }
+alb = {
+  public = {
+    name           = "public"
+    subnet_name    = "public"
+    allow_alb_cidr = null
+    internal       = false
   }
+  private = {
+    name           = "private"
+    subnet_name    = "app"
+    allow_alb_cidr = "web"
+    internal       = true
+  }
+}
