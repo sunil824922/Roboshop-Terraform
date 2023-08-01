@@ -102,12 +102,13 @@ module "app" {
   depends_on = [module.alb, module.vpc, module.docdb, module.elasticache, module.rabbitmq, module.rds]
   source = "git::https://github.com/sunil824922/tf-module-app.git"
 
-  for_each      = var.app
-  instance_type = each.value["instance_type"]
-  name          = each.value["name"]
-  desired_capacity = each.value["desired_capacity"]
-  max_size = each.value["max_size"]
-  min_size = each.value["min_size"]
+  for_each           = var.app
+  instance_type      = each.value["instance_type"]
+  name               = each.value["name"]
+  desired_capacity   = each.value["desired_capacity"]
+  max_size           = each.value["max_size"]
+  min_size           = each.value["min_size"]
+  app_port           = each.value["app_port"]
 
   subnet_ids     = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"], null), "subnet_ids", null)
   vpc_id        = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
