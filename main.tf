@@ -37,41 +37,41 @@ module "vpc" {
 
 
 
-module "docdb" {
-  source = "git::https://github.com/sunil824922/tf-module-docdb.git"
+#module "docdb" {
+#  source = "git::https://github.com/sunil824922/tf-module-docdb.git"
+#
+#  for_each   = var.docdb
+#  subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
+#  allow_db_cidr = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_db_cidr"], null), "subnet_cidrs", null)
+#  engine_version = each.value["engine_version"]
+#  instance_count = each.value["instance_count"]
+#  instance_class = each.value["instance_class"]
+#
+#
+#  tags       = local.tags
+#  env        = var.env
+#  vpc_id     = local.vpc_id
+#  kms_arn    = var.kms_arn
+#
+#}
 
-  for_each   = var.docdb
-  subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
-  allow_db_cidr = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_db_cidr"], null), "subnet_cidrs", null)
-  engine_version = each.value["engine_version"]
-  instance_count = each.value["instance_count"]
-  instance_class = each.value["instance_class"]
-
-
-  tags       = local.tags
-  env        = var.env
-  vpc_id     = local.vpc_id
-  kms_arn    = var.kms_arn
-
-}
-
-module "rds" {
-  source = "git::https://github.com/sunil824922/tf-module-rds.git"
-
-  for_each   = var.rds
-  subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
-  allow_db_cidr = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_db_cidr"], null), "subnet_cidrs", null)
-  engine_version = each.value["engine_version"]
-  instance_count = each.value["instance_count"]
-  instance_class = each.value["instance_class"]
-
-
-  tags       = local.tags
-  env        = var.env
-  vpc_id     = local.vpc_id
-  kms_arn    = var.kms_arn
-
-}
+#module "rds" {
+#  source = "git::https://github.com/sunil824922/tf-module-rds.git"
+#
+#  for_each   = var.rds
+#  subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
+#  allow_db_cidr = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_db_cidr"], null), "subnet_cidrs", null)
+#  engine_version = each.value["engine_version"]
+#  instance_count = each.value["instance_count"]
+#  instance_class = each.value["instance_class"]
+#
+#
+#  tags       = local.tags
+#  env        = var.env
+#  vpc_id     = local.vpc_id
+#  kms_arn    = var.kms_arn
+#
+#}
 
 
 module "elasticache" {
@@ -91,36 +91,36 @@ module "elasticache" {
 }
 
 
-module "rabbitmq" {
-  source = "git::https://github.com/sunil824922/tf-module-amazon-mq.git"
-
-  for_each   = var.rabbitmq
-  subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
-  allow_db_cidr = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_db_cidr"], null), "subnet_cidrs", null)
-  instance_type = each.value["instance_type"]
-
-
-  tags       = local.tags
-  env        = var.env
-  vpc_id     = local.vpc_id
-  kms_arn    = var.kms_arn
-  bastion_cidr = var.bastion_cidr
-
-}
-
-module "alb" {
-  source = "git::https://github.com/sunil824922/tf-module-alb.git"
-
-  for_each   = var.alb
-  subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
-  allow_alb_cidr = each.value["name"] == "public" ? ["0.0.0.0/0"] : lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_alb_cidr"], null), "subnet_cidrs", null)
-  name = each.value["name"]
-  internal = each.value["internal"]
-  tags       = local.tags
-  env        = var.env
-  vpc_id     = local.vpc_id
-
-}
+#module "rabbitmq" {
+#  source = "git::https://github.com/sunil824922/tf-module-amazon-mq.git"
+#
+#  for_each   = var.rabbitmq
+#  subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
+#  allow_db_cidr = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_db_cidr"], null), "subnet_cidrs", null)
+#  instance_type = each.value["instance_type"]
+#
+#
+#  tags       = local.tags
+#  env        = var.env
+#  vpc_id     = local.vpc_id
+#  kms_arn    = var.kms_arn
+#  bastion_cidr = var.bastion_cidr
+#
+#}
+#
+#module "alb" {
+#  source = "git::https://github.com/sunil824922/tf-module-alb.git"
+#
+#  for_each   = var.alb
+#  subnets = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["subnet_name"] , null), "subnet_ids", null)
+#  allow_alb_cidr = each.value["name"] == "public" ? ["0.0.0.0/0"] : lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnets", null), each.value["allow_alb_cidr"], null), "subnet_cidrs", null)
+#  name = each.value["name"]
+#  internal = each.value["internal"]
+#  tags       = local.tags
+#  env        = var.env
+#  vpc_id     = local.vpc_id
+#
+#}
 
 
 
