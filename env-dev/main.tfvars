@@ -77,12 +77,12 @@ rds = {
 
 elasticache = {
   main = {
-    subnet_name    = "db"
-    allow_db_cidr  = "app"
-    engine_version = "6.x"
+    subnet_name             = "db"
+    allow_db_cidr           = "app"
+    engine_version          = "6.x"
     replicas_per_node_group = 1
-    num_node_groups = 1
-    node_type = "cache.t3.micro"
+    num_node_groups         = 1
+    node_type               = "cache.t3.micro"
   }
 }
 
