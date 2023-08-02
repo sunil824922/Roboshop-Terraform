@@ -1,9 +1,12 @@
 env = "dev"
-bastion_cidr =  ["172.31.85.163/32"]
-default_vpc_id = "vpc-0f98d7eb9f93e5534"
-default_vpc_cidr = "172.31.0.0/16"
-default_vpc_rtid = "rtb-04a192c81b46691a8"
-kms_arn = "arn:aws:kms:us-east-1:149202740311:key/c98b73e8-d4fe-4ac3-a240-529782bcab23"
+bastion_cidr      =  ["172.31.85.163/32"]
+default_vpc_id    = "vpc-0f98d7eb9f93e5534"
+default_vpc_cidr  = "172.31.0.0/16"
+default_vpc_rtid  = "rtb-04a192c81b46691a8"
+kms_arn           = "arn:aws:kms:us-east-1:149202740311:key/c98b73e8-d4fe-4ac3-a240-529782bcab23"
+domain_name       = "devops2023sk.online"
+domain_id         = "Z01365449HN8HOVYE5QR"
+
 vpc = {
   main = {
     cidr_block = "10.0.0.0/16"
@@ -43,7 +46,11 @@ app = {
     min_size           = 1
     allow_app_cidr     = "public"
     app_port           = 80
+    listener_priority  = 1
+    lb_type            = "public"
+    dns_name           = "dev"
   }
+
   catalogue = {
     name               = "catalogue"
     instance_type      = "t3.small"
@@ -53,6 +60,8 @@ app = {
     min_size           = 1
     allow_app_cidr     = "web"
     app_port           = 8080
+    listener_priority  = 1
+    lb_type            = "private"
   }
 
 }
