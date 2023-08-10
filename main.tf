@@ -121,6 +121,7 @@ module "app" {
   lb_dns_name   = lookup(lookup(module.alb, each.value["lb_type"], null), "dns_name", null)
   env = var.env
   bastion_cidr = var.bastion_cidr
+  monitor_cidr = var.monitor_cidr
   tags         = merge(local.tags, {Monitor = "true"})
   domain_name = var.domain_name
   domain_id   = var.domain_id
