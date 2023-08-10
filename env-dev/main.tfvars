@@ -61,7 +61,7 @@ app = {
     min_size           = 1
     allow_app_cidr     = "app"
     app_port           = 8080
-    listener_priority  = 1
+    listener_priority  = 2
     lb_type            = "private"
     parameters         = ["docdb"]
   }
@@ -75,7 +75,7 @@ app = {
     min_size           = 1
     allow_app_cidr     = "app"
     app_port           = 8080
-    listener_priority  = 1
+    listener_priority  = 3
     lb_type            = "private"
     parameters         = ["docdb"]
   }
@@ -89,7 +89,7 @@ app = {
     min_size           = 1
     allow_app_cidr     = "app"
     app_port           = 8080
-    listener_priority  = 1
+    listener_priority  = 4
     lb_type            = "private"
     parameters         = ["docdb"]
   }
@@ -103,7 +103,7 @@ app = {
     min_size           = 1
     allow_app_cidr     = "app"
     app_port           = 8080
-    listener_priority  = 1
+    listener_priority  = 5
     lb_type            = "private"
     parameters         = ["docdb"]
   }
@@ -117,7 +117,7 @@ app = {
     min_size           = 1
     allow_app_cidr     = "app"
     app_port           = 8080
-    listener_priority  = 1
+    listener_priority  = 6
     lb_type            = "private"
     parameters         = ["docdb"]
   }
